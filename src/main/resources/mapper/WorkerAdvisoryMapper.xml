@@ -1,56 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aorun.attorney.dao.WorkerAdvisoryMapper">
-  <resultMap id="BaseResultMap" type="com.aorun.attorney.model.WorkerAdvisory">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="worker_id" jdbcType="BIGINT" property="workerId" />
-    <result column="advisory_type" jdbcType="INTEGER" property="advisoryType" />
-    <result column="advisory_biz_type" jdbcType="INTEGER" property="advisoryBizType" />
-    <result column="advisory_name" jdbcType="VARCHAR" property="advisoryName" />
-    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
-    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
-    <result column="advisory_title" jdbcType="VARCHAR" property="advisoryTitle" />
-    <result column="advisory_content" jdbcType="VARCHAR" property="advisoryContent" />
-    <result column="attorney_id" jdbcType="BIGINT" property="attorneyId" />
-    <result column="materials_urls" jdbcType="VARCHAR" property="materialsUrls" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="fail_reason" jdbcType="VARCHAR" property="failReason" />
-    <result column="is_deleted" jdbcType="CHAR" property="isDeleted" />
-    <result column="is_readed" jdbcType="INTEGER" property="isReaded" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, worker_id, advisory_type, advisory_biz_type, advisory_name, telephone, company_name, 
-    advisory_title, advisory_content, attorney_id, materials_urls, status, fail_reason, 
-    is_deleted, is_readed, create_time, update_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_worker_advisory
-    where id = #{id,jdbcType=BIGINT}
-  </select>
+    <resultMap id="BaseResultMap" type="com.aorun.attorney.model.WorkerAdvisory">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="worker_id" jdbcType="BIGINT" property="workerId"/>
+        <result column="advisory_type" jdbcType="INTEGER" property="advisoryType"/>
+        <result column="advisory_biz_type" jdbcType="INTEGER" property="advisoryBizType"/>
+        <result column="advisory_name" jdbcType="VARCHAR" property="advisoryName"/>
+        <result column="telephone" jdbcType="VARCHAR" property="telephone"/>
+        <result column="company_name" jdbcType="VARCHAR" property="companyName"/>
+        <result column="advisory_title" jdbcType="VARCHAR" property="advisoryTitle"/>
+        <result column="advisory_content" jdbcType="VARCHAR" property="advisoryContent"/>
+        <result column="attorney_id" jdbcType="BIGINT" property="attorneyId"/>
+        <result column="materials_urls" jdbcType="VARCHAR" property="materialsUrls"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="fail_reason" jdbcType="VARCHAR" property="failReason"/>
+        <result column="is_deleted" jdbcType="CHAR" property="isDeleted"/>
+        <result column="is_readed" jdbcType="INTEGER" property="isReaded"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, worker_id, advisory_type, advisory_biz_type, advisory_name, telephone, company_name,
+        advisory_title, advisory_content, attorney_id, materials_urls, status, fail_reason,
+        is_deleted, is_readed, create_time, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_worker_advisory
+        where id = #{id,jdbcType=BIGINT}
+    </select>
 
-  <select id="getWorkerAdvisoryListByAttorneyId" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from t_worker_advisory
-    where attorney_id = #{attorneyId}   and is_deleted = 'n'
-    order by create_time desc
-    <if test="start!=null and limit!=null ">
-      limit #{start},#{limit}
-    </if>
-  </select>
+    <select id="getWorkerAdvisoryListByAttorneyId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_worker_advisory
+        where attorney_id = #{attorneyId} and is_deleted = 'n'
+        order by create_time desc
+        <if test="start!=null and limit!=null ">
+            limit #{start},#{limit}
+        </if>
+    </select>
 
 
-
-  <select id="getAllWorkerAdvisoryListByAttorneyId" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from t_worker_advisory
-    where attorney_id = #{attorneyId}   and is_deleted = 'n'
-    order by create_time desc
-  </select>
+    <select id="getAllWorkerAdvisoryListByAttorneyId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_worker_advisory
+        where attorney_id = #{attorneyId} and is_deleted = 'n'
+        order by create_time desc
+    </select>
 
 </mapper>

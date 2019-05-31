@@ -10,7 +10,6 @@ public interface WorkerAdvisoryMapper {
     WorkerAdvisory selectByPrimaryKey(Long id);
 
     /**
-     *
      * @param attorneyId
      * @param start
      * @param limit
@@ -19,11 +18,10 @@ public interface WorkerAdvisoryMapper {
     List<WorkerAdvisory> getWorkerAdvisoryListByAttorneyId(@Param("attorneyId") Long attorneyId, @Param("start") Integer start, @Param("limit") Integer limit);
 
     /**
-     *
      * @param attorneyId
      * @return
      */
-    List<WorkerAdvisory> getAllWorkerAdvisoryListByAttorneyId(@Param("attorneyId")Long attorneyId);
+    List<WorkerAdvisory> getAllWorkerAdvisoryListByAttorneyId(@Param("attorneyId") Long attorneyId);
 
 
 }

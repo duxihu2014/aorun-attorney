@@ -1,4 +1,4 @@
-package com.aorun.attorney;
+package com.aorun.attorney.config;
 
 import org.springframework.stereotype.Component;
 
@@ -8,9 +8,8 @@ import java.io.IOException;
 
 /**
  * 处理跨域问题
- * @author MR.ZHENG
- * @date 2016/08/08
  *
+ * @author duxihu
  */
 @Component
 public class OriginFilter implements Filter {
@@ -22,7 +21,7 @@ public class OriginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res,
-            FilterChain chain) throws IOException, ServletException {
+                         FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE,PUT");

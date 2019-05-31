@@ -1,56 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aorun.attorney.dao.WorkerAttorneyReplyAdvisoryMapper">
-  <resultMap id="BaseResultMap" type="com.aorun.attorney.model.WorkerAttorneyReplyAdvisory">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="worker_id" jdbcType="BIGINT" property="workerId" />
-    <result column="attorney_id" jdbcType="BIGINT" property="attorneyId" />
-    <result column="advisory_id" jdbcType="BIGINT" property="advisoryId" />
-    <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
-    <result column="reply_type" jdbcType="INTEGER" property="replyType" />
-    <result column="reply_time" jdbcType="TIMESTAMP" property="replyTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, worker_id, attorney_id, advisory_id, reply_content, reply_type, reply_time
-  </sql>
+    <resultMap id="BaseResultMap" type="com.aorun.attorney.model.WorkerAttorneyReplyAdvisory">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="worker_id" jdbcType="BIGINT" property="workerId"/>
+        <result column="attorney_id" jdbcType="BIGINT" property="attorneyId"/>
+        <result column="advisory_id" jdbcType="BIGINT" property="advisoryId"/>
+        <result column="reply_content" jdbcType="VARCHAR" property="replyContent"/>
+        <result column="reply_type" jdbcType="INTEGER" property="replyType"/>
+        <result column="reply_time" jdbcType="TIMESTAMP" property="replyTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, worker_id, attorney_id, advisory_id, reply_content, reply_type, reply_time
+    </sql>
 
-  <insert id="insert" parameterType="com.aorun.attorney.model.WorkerAttorneyReplyAdvisory">
-    insert into t_worker_attorney_reply_advisory (id, worker_id, attorney_id, 
-      advisory_id, reply_content, reply_type, 
-      reply_time)
-    values (#{id,jdbcType=BIGINT}, #{workerId,jdbcType=BIGINT}, #{attorneyId,jdbcType=BIGINT}, 
-      #{advisoryId,jdbcType=BIGINT}, #{replyContent,jdbcType=VARCHAR}, #{replyType,jdbcType=INTEGER}, 
-      now())
-  </insert>
+    <insert id="insert" parameterType="com.aorun.attorney.model.WorkerAttorneyReplyAdvisory">
+        insert into t_worker_attorney_reply_advisory (id, worker_id, attorney_id,
+        advisory_id, reply_content, reply_type,
+        reply_time)
+        values (#{id,jdbcType=BIGINT}, #{workerId,jdbcType=BIGINT}, #{attorneyId,jdbcType=BIGINT},
+        #{advisoryId,jdbcType=BIGINT}, #{replyContent,jdbcType=VARCHAR}, #{replyType,jdbcType=INTEGER},
+        now())
+    </insert>
 
 
+    <select id="getWorkerAttorneyReplyAdvisoryListByAttorneyId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_worker_attorney_reply_advisory
+        where attorney_id = #{attorneyId} and advisory_id = #{advisoryId}
 
-  <select id="getWorkerAttorneyReplyAdvisoryListByAttorneyId" resultMap="BaseResultMap" >
-  select
-  <include refid="Base_Column_List" />
-  from t_worker_attorney_reply_advisory
-    where attorney_id = #{attorneyId}  and advisory_id = #{advisoryId}
-
-    <if test="isfirstPoint  == 'n'.toString()" >
-      and  reply_type = 2
-        <if test="requestTimePoint != ''" >
-           <![CDATA[
+        <if test="isfirstPoint  == 'n'.toString()">
+            and reply_type = 2
+            <if test="requestTimePoint != ''">
+                <![CDATA[
 			and    reply_time > #{requestTimePoint}
 				]]>
-       </if>
-    </if>
-  order by reply_time asc
-</select>
+            </if>
+        </if>
+        order by reply_time asc
+    </select>
 
 
-  <select id="getAllWorkerAttorneyReplyAdvisoryListByAttorneyId" resultMap="BaseResultMap" >
-    select
-    <include refid="Base_Column_List" />
-    from t_worker_attorney_reply_advisory
-    where attorney_id = #{attorneyId}  and advisory_id = #{advisoryId}
-    order by reply_time asc
-  </select>
-
+    <select id="getAllWorkerAttorneyReplyAdvisoryListByAttorneyId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_worker_attorney_reply_advisory
+        where attorney_id = #{attorneyId} and advisory_id = #{advisoryId}
+        order by reply_time asc
+    </select>
 
 
 </mapper>

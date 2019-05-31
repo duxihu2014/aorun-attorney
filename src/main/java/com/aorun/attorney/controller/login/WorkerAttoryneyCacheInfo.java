@@ -26,7 +26,8 @@ public class WorkerAttoryneyCacheInfo {
         }
         // 解析data
         Gson gson = new Gson();
-        workerAttorney = gson.fromJson(string, new TypeToken<WorkerAttorney>(){}.getType());
+        workerAttorney = gson.fromJson(string, new TypeToken<WorkerAttorney>() {
+        }.getType());
         return workerAttorney;
     }
 

@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aorun.attorney.dao.WorkerAttorneyMapper">
-  <resultMap id="BaseResultMap" type="com.aorun.attorney.model.WorkerAttorney">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
-    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="img_path" jdbcType="VARCHAR" property="imgPath" />
-    <result column="disable" jdbcType="CHAR" property="disable" />
-    <result column="mac_addr" jdbcType="VARCHAR" property="macAddr" />
-    <result column="push_sign_addr" jdbcType="VARCHAR" property="pushSignAddr" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.aorun.attorney.model.WorkerAttorney">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="login_name" jdbcType="VARCHAR" property="loginName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="telephone" jdbcType="VARCHAR" property="telephone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="img_path" jdbcType="VARCHAR" property="imgPath"/>
+        <result column="disable" jdbcType="CHAR" property="disable"/>
+        <result column="mac_addr" jdbcType="VARCHAR" property="macAddr"/>
+        <result column="push_sign_addr" jdbcType="VARCHAR" property="pushSignAddr"/>
+    </resultMap>
 
 
-  <sql id="Base_Column_List">
-    id, nick_name, login_name, password, create_time, update_time, telephone, email, 
-    img_path, disable, mac_addr, push_sign_addr
-  </sql>
+    <sql id="Base_Column_List">
+        id, nick_name, login_name, password, create_time, update_time, telephone, email,
+        img_path, disable, mac_addr, push_sign_addr
+    </sql>
 
-  <select id="findWorkerAttorneyByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_worker_attorney
-    where login_name = #{loginName,jdbcType=BIGINT}
-  </select>
-
+    <select id="findWorkerAttorneyByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_worker_attorney
+        where login_name = #{loginName,jdbcType=BIGINT}
+    </select>
 
 
 </mapper>

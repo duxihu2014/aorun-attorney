@@ -12,7 +12,7 @@ public interface WorkerAttorneyReplyAdvisoryMapper {
 
     List<WorkerAttorneyReplyAdvisory> getWorkerAttorneyReplyAdvisoryListByAttorneyId(@Param("attorneyId") Long attorneyId, @Param("advisoryId") Long advisoryId, @Param("requestTimePoint") String requestTimePoint, @Param("isfirstPoint") String isfirstPoint);
 
-    List<WorkerAttorneyReplyAdvisory> getAllWorkerAttorneyReplyAdvisoryListByAttorneyId(@Param("attorneyId") Long attorneyId,@Param("advisoryId") Long advisoryId);
+    List<WorkerAttorneyReplyAdvisory> getAllWorkerAttorneyReplyAdvisoryListByAttorneyId(@Param("attorneyId") Long attorneyId, @Param("advisoryId") Long advisoryId);
 
 
 }

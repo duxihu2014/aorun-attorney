@@ -6,11 +6,13 @@
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
     </script>
     <script>
-        $(document).ready(function(){
-            $("button").click(function(){
-                $.ajax({url:"http://localhost:8087/test",success:function(result){
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.ajax({
+                    url: "http://localhost:8087/test", success: function (result) {
                         $("#p1").html(result);
-                    }});
+                    }
+                });
             });
         });
     </script>

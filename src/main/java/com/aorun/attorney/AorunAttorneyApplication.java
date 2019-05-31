@@ -10,7 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AorunAttorneyApplication {
 
     public static void main(String[] args) {
+
+        //SpringApplication.run(AorunAttorneyApplication.class, args);
+
+        System.out.println("The service to start.");
         SpringApplication.run(AorunAttorneyApplication.class, args);
+        System.out.println("The service has started.");
+
     }
 
 }

@@ -34,7 +34,7 @@ public class WorkerAdvisoryServiceImpl implements WorkerAdvisoryService {
         Integer start = (pageIndex - 1) * pageSize;
         /** 每页大小  */
         Integer limit = pageSize;
-        return workerAdvisoryMapper.getWorkerAdvisoryListByAttorneyId(attorneyId,start,limit);
+        return workerAdvisoryMapper.getWorkerAdvisoryListByAttorneyId(attorneyId, start, limit);
     }
 
     @Override
