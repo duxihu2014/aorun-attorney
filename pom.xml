@@ -21,7 +21,7 @@
         <!--com.mysql.jdbc.Driver 是 mysql-connector-java 5中的，
         -->
         <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
-        <mysql-connector>5.1.39</mysql-connector>
+        <mysql-connector>8.0.28</mysql-connector>
 
         <!--  TODO://   this is bug
             com.mysql.cj.jdbc.Driver 是 mysql-connector-java 6中的
